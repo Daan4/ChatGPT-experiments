@@ -16,12 +16,13 @@ def display(func):
 
 
 @display
-def get_completion_from_prompt(prompt, model="gpt-3.5-turbo", temperature=0):
+def get_completion_from_prompt(prompt, model="gpt-3.5-turbo", temperature=0, presence_penalty=0):
     messages = [{"role": "user", "content": prompt}]
     response = openai.ChatCompletion.create(
         model=model,
         messages=messages,
         temperature=temperature,
+        presence_penalty=presence_penalty,
     )
     return response
 
